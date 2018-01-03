@@ -4,7 +4,6 @@ dist: trusty
 env:
   global:
     - secure: "xn2++omcfsEL81CASo8WXyOIP7H1XHWe9oCBYHaiCZ7Ju3vIxF4YP5QiUOrtnRp8/V8g8mJgglnaruZIm3++oaDOweiWdmLDfTRGXgCPq7sEA5bhiGI0P6wFYa0e0Yalkw/cKS8AOl3yJ0wxEO2rSlObVDsU/zU0pLsqca8HHHJiRyTpk0aJaB1hGI886gwlU9FOUm4Kj5+FCwSwPujNy4PJI2jZd0lh2+iWFav8IzzklxhDU4tdDG9/YffbXgt8c2NImRxVl5ikz/6sZp7K9c/KR+QTY0KJywthNFafblXSj5vjTOhPPlJReZhnKeb1/ezAeaqZNl+Vii+fNSJVPLY7RlasIqLRI+O3oRjKIMyThWrcQNYoH25qW0mvelshyC9z0h8DvKAUypWvPG1K2CLKwEENO8JVg3BhtT9VWmoTlfo2OHBXVhuYCnDd5dU3ON04oOndpu0r53jLwggQQcDGlFtbjdR+fYvf0OQKUdSS+9mMPFkRmX8qWh9kNlhs1H4N4m+6gmN6q1JGzovT173+Jp0PQoro57LGPEw52TO+b3B3VxsRFPF1Hg/MgWf3uaLG2onNqxNAakzxIhb1JPo3gL0/rCoy9VDxFT9X2eXVxtcGbdCiQzBfsQwHqkGHWfJGleeNoq/cp3JyBs/q/KPLwkvnKJQxBsPTBkQ9l+Y="
-    - secure: "yfRlKfr8Inz+WZIxMubvgQMBBZgQUunEWv7oLxAPpfY7LlqLAItjf9vbTniOkdGg+UG0nBgn2irk51P+d8dc0sh54J7OGJcu9vfil1mpojsa2DKBMaX4Hznzfzam5NAgZFkjbNw8cQATiARy2kl7bKD0VUjSuqpc+P4awdEhCfZmzkHwZwYpM1mzw8jEKD6jHXTJ0Miy+vF4puDmfRNCNMped9RaR6V6/peet0Us9v2GKg0uBBRRF/eMTRiO+9OxlFGURpTvuVKEXV4AwUggr8CNCimULL40m3btHAuioEUevCUs+smDvddutzGC6Z/jYA7LJEQCj5DRUbeXTqmOX6wr9TerkpLhqghUSOzKheyQ+JKhDNzl0Dp7VcUNWYr9obm2COElfNKNIe0m851W93zjM92L6I5Nj4EKp6zEBxnnQk7LXWrJ8rOA0sA/kzdWXn2ETReK7YlKwESkG8i+e1v5ccWNLK1eNxarNlwajDDN/7uHW64aju/BfgTwnE+gwLS1dOJzsSE8UJzfchNjJXWlj2alkOJwf0g0yuByRLcTRr2XGu81PTxBHw3y84ubw6IdhP8J8VJljF2FrFCuAnv77V/N0baVTCvr17/lUmLySZ81UNFc0rXSHKzKkhnn7NfX62AkDcaq5J4Qs2gCtTnx8CBwcIbbX4+CszJTgS4="
     - secure: "b2T49Xq225VOlXqIZnFNPZPIH15/wLEqgNSI2FkJMhApi0jrB5ISv9qTW5QIDVOUj9E8Q/+AwML/Cs8gBxSt3bIiBgjJPbYPyXcEEyPGVOUtP8Khjm4VpMd5hB+BbGTGp2pzIC41hEbW96KAJQuzmziir0raYMvwfw98AKg9bzWR5IGkMHZf3gFnNLBJcIaW5XQn33nh+ELL9xmy0Q4xrXe+a+saTRdeSMfq1cHk79B92IWHHxbGrXHrmmXwRUf+jOUZQm4towb0DD33m1RNsYm9RCXDHNuwbZG424XA+v9qRxYmRUnyATp0uesPSWapdGgQoJrBwLB8LIhDF13JbrwVCkpwQfxUd4vIRgM9kZbmpODhFwBBOZ+QiJYZxEYaDzP+XpRq54LfuM351lC8t26ZhCfHrsiaDA0p5co/u7rCcJ7PkthUZdrRB78JRzczpJlESmZBU5NiX7s/S4Kg97ezXT460i14Iy0yuPUOAjEAkx27fKGuRxbjwO6wmkaBpj95oYU/H1Be6xyEmURKBmel0bdAT+GPJs0eQiicpxlYu/n1SQnvvBXlVYof3QfLeBQO/NeEufwMMsVHNMJs6lF8+ylT2vyUzoUY40IK+uTghYQYcZP4KBJsKzQ6noZYFQPTp5lpweNVp2BFm6zglcP6X32k2u0DocTpCy40AUE="
     - COMMIT=${TRAVIS_COMMIT::8}
 
@@ -12,7 +11,7 @@ jobs:
   include:
     - stage: build docker image
       script:
-      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASSWORD
+      - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - export REPO=zhaokundev/bettergo
       - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
       - docker build -f Dockerfile -t $REPO:$COMMIT .
