@@ -1,4 +1,4 @@
-## bettergo
+## bettergo [![Build Status](https://travis-ci.org/zhao-kun/bettergo.svg?branch=master)](https://travis-ci.org/zhao-kun/bettergo)
 
 The [`golang` repository](https://hub.docker.com/_/golang/) on Docker Hub is useful for building Go applications in a container without requiring the host to have the Go toolchain installed. Typical usage would look something like this:
 
