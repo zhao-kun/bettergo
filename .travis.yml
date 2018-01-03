@@ -1,12 +1,5 @@
-sudo: required
-
-services:
-  - docker
-
-language: go
-
-go:
-  - '1.9'
+sudo: true
+dist: trusty
 
 env:
   global:
