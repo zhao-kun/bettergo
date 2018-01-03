@@ -12,7 +12,7 @@ jobs:
   include:
     - stage: build docker image
       script:
-      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL-p $DOCKER_PASS
+      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASSWORD
       - export REPO=zhaokundev/bettergo
       - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
       - docker build -f Dockerfile -t $REPO:$COMMIT .
